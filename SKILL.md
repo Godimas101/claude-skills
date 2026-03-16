@@ -287,16 +287,57 @@ MyMod/
 
 ---
 
-## Key Reference Files (Local)
+## Asset Pipeline Overview
 
-| What | Where |
+Space Engineers uses custom asset formats. Source files must be converted before they work in-game.
+
+### Models
+```
+FBX (Blender/3ds Max)  →  MwmBuilder  →  .mwm  →  reference in SBC
+```
+- Tool: `[ModSDK]\Tools\VRageEditor\` → ModelBuilder plugin
+- Documentation: `[ModSDK]\Tools\VRageEditor\Plugins\ModelBuilder\MwmBuilderReadme.txt`
+- Build progress models (`_BS1`, `_BS2`, `_BS3`) are separate .mwm files
+
+### Textures (DX11 channel packing)
+SE uses packed texture channels — **do not use vanilla naming conventions from old tutorials**:
+
+| File suffix | Channels | Contents |
+|-------------|----------|---------|
+| `_cm.dds` | RGB = Color, A = Metalness | Diffuse colour + metal mask |
+| `_ng.dds` | RGB = Normal, A = Glossiness | Normal map + gloss mask |
+| `_add.dds` | RGB = Emissive additive, A = unused | Self-illumination |
+
+- Format: DDS with DXT5 compression recommended
+- Preview: `[ModSDK]\Tools\VRageEditor\` → ModelViewer plugin
+
+### Audio
+```
+WAV (16-bit PCM, 44100 Hz)  →  xWMAEncode.exe  →  .xwm  →  reference in Audio.sbc
+```
+- **xWMAEncode.exe is bundled with the ModSDK:** `[ModSDK]\Tools\xWMAEncode.exe`
+- No separate DirectX SDK download needed
+- Also available: `[ModSDK]\Tools\AdpcmEncode.exe` for ADPCM format
+
+---
+
+## Key Reference Files
+
+| What | Where (default Steam path) |
 |------|-------|
-| Game API DLLs | `D:\SteamLibrary\steamapps\common\SpaceEngineersModSDK\Bin64_Profile\` |
-| Vanilla block SBCs | `D:\SteamLibrary\steamapps\common\SpaceEngineers\Content\Data\` |
-| InfoLCD source | `c:\Users\Chris Carpenter\VS Code Projects\mods\space-engineers-mods\Mods\` |
-| Mod making notes | `c:\Users\Chris Carpenter\VS Code Projects\mods\space-engineers-mods\MOD_MAKING_NOTES.md` |
-| Subscribed mods | `D:\SteamLibrary\steamapps\workshop\content\244850\` |
-| Mod Adjuster source | `D:\SteamLibrary\steamapps\workshop\content\244850\3017795356\` |
+| Game API DLLs + XML docs | `[ModSDK]\Bin64_Profile\` |
+| Vanilla block/item SBCs (107 files) | `[SE]\Content\Data\` |
+| CubeBlock definitions (27 category files) | `[SE]\Content\Data\CubeBlocks\` |
+| Audio definitions | `[SE]\Content\Data\Audio.sbc` |
+| Planet generator (with mod example!) | `[SE]\Content\Data\PlanetGeneratorDefinitions.sbc` |
+| ModSDK tools | `[ModSDK]\Tools\` |
+| xWMAEncode (audio) | `[ModSDK]\Tools\xWMAEncode.exe` |
+| VRageEditor (model/anim tools) | `[ModSDK]\Tools\VRageEditor\` |
+| Subscribed workshop mods | `[Steam]\steamapps\workshop\content\244850\` |
+| Mod Adjuster source | Workshop ID `3017795356` in workshop folder |
+
+> `[ModSDK]` = `[Steam]\steamapps\common\SpaceEngineersModSDK`
+> `[SE]` = `[Steam]\steamapps\common\SpaceEngineers`
 
 ---
 
