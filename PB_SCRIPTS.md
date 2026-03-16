@@ -679,15 +679,3 @@ using System.Collections.Generic;      // List<T>, Dictionary<T> ✅
 using System;                          // Math, DateTime, TimeSpan ✅
 ```
 
----
-
-## Reference Examples (Local Subscribed Mods)
-
-| Script | Workshop ID | What to study |
-|--------|------------|---------------|
-| GOAT Sorter | 3581915365 | Inventory management, tag-based filtering, CustomData config |
-| Viper VLS | 3207356939 | Weapon sequencing, turret control, hotkey actions |
-| DAS Vehicle | 1089115113 | Gyro stabilization, coroutines, subsystem architecture |
-| Mother OS | 3411507973 | IGC messaging, event-driven execution, complex state machines |
-
-Subscribed mods: `D:\SteamLibrary\steamapps\workshop\content\244850\`

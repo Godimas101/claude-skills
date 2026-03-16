@@ -71,7 +71,7 @@ In your VS Code project's Claude Code settings (`.claude/settings.json`) or via 
 
 ```
 /space-engineers
-> Help me write a Mod Adjuster patch to reduce the PCU cost of all armor blocks by 50%
+> Help me write a Mod Adjuster patch to increase the power output of all solar panels by 50%
 ```
 
 ```

@@ -4,6 +4,100 @@ Expert guidance for all Space Engineers mod and script development.
 
 ---
 
+## ON SKILL LOAD — Workspace Check
+
+**Every time this skill is invoked, run these checks before doing anything else.**
+
+### 1. SE Game Directory
+Look for a directory containing `Content/Data/` with `.sbc` files (e.g. `CubeBlocks`, `Components.sbc`).
+
+- ✅ Found → You have access to vanilla SBC definitions. Use them as ground truth.
+- ❌ Not found → Tell the user:
+  > "I don't see the Space Engineers game directory in your workspace. Please add `[Steam]\steamapps\common\SpaceEngineers\` as an additional working directory in VS Code. This gives me access to vanilla block definitions."
+
+### 2. ModSDK Directory
+Look for a directory containing `Bin64_Profile\` with `.dll` and `.xml` files (e.g. `Sandbox.Game.xml`).
+
+- ✅ Found → You have full API documentation available.
+- ❌ Not found → Tell the user:
+  > "I don't see the Space Engineers ModSDK in your workspace. Please add `[Steam]\steamapps\common\SpaceEngineersModSDK\` as an additional working directory. Install it free via Steam → Library → Tools → 'Space Engineers - Mod SDK'. This gives me access to the full C# API documentation."
+
+### 3. Mod Directory (Steam Workshop or ModDB)
+Look for a directory with many numbered folders (Steam: `244850\`) OR a `MOD_CATALOGUE.md` file.
+
+- ✅ Found with `MOD_CATALOGUE.md` → Read the catalogue. Check the `Catalogued:` date — if it is more than 30 days ago, tell the user the catalogue is stale and offer to refresh it.
+- ✅ Found without `MOD_CATALOGUE.md` → Tell the user:
+  > "I can see your mod directory but there's no MOD_CATALOGUE.md yet. Would you like me to build one? It indexes all your subscribed mods so I can reference them when helping you."
+- ❌ Not found → Tell the user:
+  > "I don't see a mod directory in your workspace. If you use Steam Workshop mods, add `[Steam]\steamapps\workshop\content\244850\` as a working directory. If you use ModDB or a local mod folder, add that instead. This lets me reference your subscribed mods when helping you build or patch things."
+
+---
+
+## MOD_CATALOGUE.md — Format & Maintenance
+
+The catalogue lives at the root of your mod directory (e.g. `244850\MOD_CATALOGUE.md`).
+
+### Format
+
+```markdown
+# Space Engineers Workshop Mod Catalogue
+
+**Total mods:** [count]
+**Catalogued:** [YYYY-MM-DD]
+**Workshop folder:** `[path]`
+
+---
+
+## Notes on Name Resolution
+[how names were found — modinfo.sbmi, metadata.mod, SBC class names, folder names, etc.]
+
+**Categories used:**
+- **Script** — PB scripts or compiled C# session/LCD mods (no new blocks)
+- **Block** — Adds new blocks to the game
+- **LCD/HUD** — LCD texture packs or HUD modifications
+- **Survival** — Food, farming, survival mechanics
+- **Weapons** — Weapons, ammo, turrets
+- **Visual** — Decor, cosmetic blocks, paint, animations
+- **NPC/AI** — NPC spawns, AI systems
+- **Economy** — Trade, economy, logistics
+- **Blueprint** — Ship blueprint (not a gameplay mod)
+- **Other** — Miscellaneous / unclear
+
+---
+
+## Catalogue (sorted by mod name)
+
+| Workshop ID | Mod Name | Category | Notes |
+|-------------|----------|----------|-------|
+| [id] | [name] | [category] | [notes] |
+```
+
+### Building or Refreshing the Catalogue
+
+To build or refresh the catalogue:
+
+1. List all subdirectories in the mod folder (each is a Workshop ID)
+2. For each mod folder, find its name by checking in order:
+   - `modinfo.sbmi` → `<WorkshopId>` / `<Name>` fields
+   - `metadata.mod` → `<Name>` field
+   - Any `.sbc` file → block `<DisplayName>` or script class name
+   - Folder name as last resort
+3. Categorize based on file contents:
+   - Has `Scripts/` with `.cs` files → Script or compiled mod
+   - Has `CubeBlocks*.sbc` → Block
+   - Has `LCDTextures.sbc` → LCD/HUD
+   - Has weapon/ammo SBCs → Weapons
+   - Folder name / display name contains "Blueprint" → Blueprint
+4. Sort the table alphabetically by Mod Name
+5. Update the header count and date
+6. **Remind the user:** "Catalogue updated. Next refresh due by [date + 30 days]."
+
+### Refresh Schedule
+- Minimum: **once per month**
+- Also refresh when: user says they added/removed mods, or when the user asks "what mods do I have?"
+
+---
+
 ## CRITICAL: Know Which Type You're Working On
 
 Four completely different environments. Get this wrong and nothing works.
