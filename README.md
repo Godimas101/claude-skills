@@ -74,6 +74,8 @@ When you invoke `/space-engineers`, Claude will:
 | `SBC_TEMPLATES.md` | Copy-paste XML templates for common SBC patterns |
 | `MOD_ADJUSTER.md` | Full Mod Adjuster guide — file structure, XML format, all definition types, patch examples |
 | `PB_SCRIPTS.md` | Full PB scripting guide — Main loop, UpdateFrequency, block interfaces, coroutines, IGC, sandbox restrictions |
+| `TORCH.md` | Torch dedicated server framework — installation, plugin development, manifest format, NexusV3 multi-server |
+| `PULSAR.md` | Pulsar client plugin loader — installation, plugin development, PluginHub publishing, HarmonyLib patching |
 
 ---
 

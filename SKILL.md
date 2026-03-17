@@ -570,6 +570,8 @@ Consolidated notes for all mods in this workspace.
 - [CSHARP_PATTERNS.md](CSHARP_PATTERNS.md) — Extended C# patterns
 - [MOD_ADJUSTER.md](MOD_ADJUSTER.md) — Full Mod Adjuster guide
 - [PB_SCRIPTS.md](PB_SCRIPTS.md) — Full Programmable Block scripting guide
+- [TORCH.md](TORCH.md) — Torch dedicated server framework: installation, plugin dev, NexusV3
+- [PULSAR.md](PULSAR.md) — Pulsar client plugin loader: installation, plugin dev, PluginHub
 
 ---
 
