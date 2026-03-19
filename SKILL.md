@@ -97,7 +97,18 @@ To detect it: look for a directory that contains 10+ numeric-named subfolders (e
 
   **Do not attempt to create or reference a MOD_CATALOGUE.md until the workshop directory is in the workspace.**
 
-### 5. What Are We Working On?
+### 5. DLC / Patch Check
+
+SE patches regularly. Detect new content before starting work.
+
+1. Read `[SE]\Content\Data\Game\DLCs.sbc` and extract all `<SubtypeId>` values
+2. Compare against the known list in [DLC_CATALOGUE.md](DLC_CATALOGUE.md)
+3. If any SubtypeIds are present in the file but **not** in the catalogue:
+   > "I've detected new DLC in your game files not in my catalogue: [list]. A patch was likely released. Would you like me to research the new content?"
+   - If yes: web-search each new SubtypeId and update working knowledge for the session
+4. If the lists match: proceed silently — no new content
+
+### 6. What Are We Working On?
 
 After the workspace checks, use the `AskUserQuestion` tool to ask:
 
@@ -107,6 +118,8 @@ Header: "Project type"
 Options:
   - label: "Mod project"
     description: "SBC-only mod, or compiled mod (Text Surface Script / Session Component)"
+  - label: "MES / AI Enabled mod"
+    description: "NPC encounter mod using Modular Encounters System and/or AI Enabled"
   - label: "Mod Adjuster project"
     description: "Non-destructive balance patches against third-party workshop mods"
   - label: "Programmable Block script"
@@ -119,6 +132,7 @@ Options:
 
 **Based on the answer:**
 - **Mod project** → Ask which mod they're working on. Read the relevant CLAUDE.md and MOD_MAKING_NOTES.md before starting. Then clarify whether it's SBC-only or compiled C# if not obvious from context.
+- **MES / AI Enabled mod** → Read [MES.md](MES.md) and/or [AI_ENABLED.md](AI_ENABLED.md) before starting. Ask whether this is a ship/vehicle encounter mod (MES), a character/creature mod (AI Enabled), or both combined. Reference the mod catalogue for installed MES and AI Enabled mods the user may want to study.
 - **Mod Adjuster project** → Focus on Mod Adjuster patterns. Reference the mod catalogue to find the target mod's Workshop ID and SBC definitions. See MOD_ADJUSTER.md.
 - **Programmable Block script** → Apply PB sandbox restrictions throughout. See PB_SCRIPTS.md.
 - **Torch or Pulsar plugin** → Ask "Torch or Pulsar?" and "Where is it installed?" before proceeding. See TORCH.md or PULSAR.md accordingly.
@@ -151,7 +165,9 @@ The catalogue lives at the root of your mod directory (e.g. `244850\MOD_CATALOGU
 - **Survival** — Food, farming, survival mechanics
 - **Weapons** — Weapons, ammo, turrets
 - **Visual** — Decor, cosmetic blocks, paint, animations
-- **NPC/AI** — NPC spawns, AI systems
+- **MES** — Modular Encounters System framework or child/encounter pack mod
+- **AI Enabled** — AI Enabled framework or character/creature/crew child mod
+- **NPC/AI** — NPC spawns or AI systems that don't use MES or AI Enabled
 - **Economy** — Trade, economy, logistics
 - **Blueprint** — Ship blueprint (not a gameplay mod)
 - **Other** — Miscellaneous / unclear
@@ -181,6 +197,8 @@ To build or refresh the catalogue:
    - Has `LCDTextures.sbc` → LCD/HUD
    - Has weapon/ammo SBCs → Weapons
    - Folder name / display name contains "Blueprint" → Blueprint
+   - Has `Profiles/` subfolder OR any SBC containing `[Modular Encounters SpawnGroup]` → **MES**
+   - Has `<Bot xsi:type="MyObjectBuilder_AnimalBotDefinition">` in any SBC OR has `AnimationControllers/` folder → **AI Enabled**
 4. Sort the table alphabetically by Mod Name
 5. Update the header count and date
 6. **Remind the user:** "Catalogue updated. Next refresh due by [date + 30 days]."
@@ -532,6 +550,9 @@ WAV (16-bit PCM, 44100 Hz)  →  xWMAEncode.exe  →  .xwm  →  reference in Au
 | VRageEditor (model/anim tools) | `[ModSDK]\Tools\VRageEditor\` |
 | Subscribed workshop mods | `[Steam]\steamapps\workshop\content\244850\` |
 | Mod Adjuster source | Workshop ID `3017795356` in workshop folder |
+| DLC definitions | `[SE]\Content\Data\Game\DLCs.sbc` |
+| MES (Modular Encounters System) | Workshop ID `1521905890` in workshop folder |
+| AI Enabled | Workshop ID `2596208372` in workshop folder |
 
 > `[ModSDK]` = `[Steam]\steamapps\common\SpaceEngineersModSDK`
 > `[SE]` = `[Steam]\steamapps\common\SpaceEngineers`
@@ -613,6 +634,9 @@ Consolidated notes for all mods in this workspace.
 - [PB_SCRIPTS.md](PB_SCRIPTS.md) — Full Programmable Block scripting guide
 - [TORCH.md](TORCH.md) — Torch dedicated server framework: installation, plugin dev, NexusV3
 - [PULSAR.md](PULSAR.md) — Pulsar client plugin loader: installation, plugin dev, PluginHub
+- [MES.md](MES.md) — Modular Encounters System: profile types, SBC format, child mod structure
+- [AI_ENABLED.md](AI_ENABLED.md) — AI Enabled: bot definitions, character SBC, MES integration, child mods
+- [DLC_CATALOGUE.md](DLC_CATALOGUE.md) — Full DLC pack listing + patch detection instructions
 
 ---
 

@@ -1,8 +1,10 @@
 # Space Engineers Modding Skill for Claude Code
 
-An expert skill for Claude Code covering all three types of Space Engineers mod development:
+An expert skill for Claude Code covering all types of Space Engineers mod development:
 
 - **Compiled mods** — C# text surface scripts (LCD screens), session components, SBC XML definitions
+- **MES encounter mods** — NPC ship, drone, station, and creature encounters using Modular Encounters System
+- **AI Enabled mods** — Humanoid NPCs, robots, and creature bots using the AI Enabled framework
 - **Mod Adjuster mods** — Runtime definition patching via the [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) framework
 - **Programmable Block scripts** — Sandboxed ingame scripts (Main loop, GridTerminalSystem, IGC, etc.)
 
@@ -60,7 +62,8 @@ In VS Code, open your workspace settings and add the paths above as additional w
 When you invoke `/space-engineers`, Claude will:
 
 - **Check for required directories** — if the game directory, ModSDK, workshop folder, or AppData aren't in your workspace, Claude will ask you to add any that are missing before proceeding
-- **Ask what you're working on** — a quick picker to select your project type (Mod, Mod Adjuster, PB Script, or Torch/Pulsar plugin) so Claude focuses on the right tools and patterns from the start
+- **Detect new patches** — compares installed DLC against a known catalogue; if a new patch has dropped, Claude will alert you and offer to research the new content before you start work
+- **Ask what you're working on** — a quick picker to select your project type (Mod, MES/AI Enabled, Mod Adjuster, PB Script, or Torch/Pulsar plugin) so Claude focuses on the right tools and patterns from the start
 - **Read your mod notes** — if a `MOD_MAKING_NOTES.md` exists in your mod directory, Claude reads it first to catch up on what was done in previous sessions and what's still pending. If one doesn't exist, Claude will offer to create it.
 - **Check your mod catalogue** — if a `MOD_CATALOGUE.md` exists in your workshop directory, Claude uses it to look up mod names, Workshop IDs, and SBC definitions
 
@@ -73,6 +76,9 @@ When you invoke `/space-engineers`, Claude will:
 | `SKILL.md` | Main skill — all mod types, SBC XML, C# patterns, asset pipeline, log reading, gotchas |
 | `CSHARP_PATTERNS.md` | Extended C# reference — power/gas/inventory queries, drawing helpers, config patterns, performance rules |
 | `SBC_TEMPLATES.md` | Copy-paste XML templates for common SBC patterns |
+| `MES.md` | Modular Encounters System guide — SpawnGroup, Behavior, Autopilot, Trigger, Action, SpawnConditions profile formats and examples |
+| `AI_ENABLED.md` | AI Enabled guide — bot definitions, character SBC, MES integration for creature/NPC spawning |
+| `DLC_CATALOGUE.md` | Full DLC pack listing with SubtypeIds — used at startup to detect new patches |
 | `MOD_ADJUSTER.md` | Full Mod Adjuster guide — file structure, XML format, all definition types, patch examples |
 | `PB_SCRIPTS.md` | Full PB scripting guide — Main loop, UpdateFrequency, block interfaces, coroutines, IGC, sandbox restrictions |
 | `TORCH.md` | Torch dedicated server framework — installation, plugin development, manifest format, NexusV3 multi-server |
@@ -95,6 +101,16 @@ When you invoke `/space-engineers`, Claude will:
 ```
 /space-engineers
 > Write a PB script that monitors battery charge and broadcasts a warning via IGC when below 20%
+```
+
+```
+/space-engineers
+> I want to create a MES encounter mod that spawns pirate drones on EarthLike at night
+```
+
+```
+/space-engineers
+> Help me set up an AI Enabled bot that patrols an NPC station and attacks players on sight
 ```
 
 ```
