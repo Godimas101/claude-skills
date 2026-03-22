@@ -14,6 +14,7 @@ An expert Claude Code skill covering all types of Space Engineers mod developmen
 - **Framework mods** — Child mods for community frameworks: WeaponCore, Vanilla+, Animation Engine, Scope Framework, and Tank Tracks
 - **Mod Adjuster mods** — Runtime definition patching via the [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) framework
 - **Programmable Block scripts** — Sandboxed ingame scripts (Main loop, GridTerminalSystem, IGC, etc.)
+- **Server & client plugins** — Torch dedicated server plugins (NexusV3, HarmonyLib patching) and Pulsar client plugins (in-game mod loader, API hooking)
 
 ---
 
