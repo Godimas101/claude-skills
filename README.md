@@ -11,6 +11,7 @@ An expert Claude Code skill covering all types of Space Engineers mod developmen
 - **Compiled mods** — C# text surface scripts (LCD screens), session components, SBC XML definitions
 - **MES encounter mods** — NPC ship, drone, station, and creature encounters using Modular Encounters System
 - **AI Enabled mods** — Humanoid NPCs, robots, and creature bots using the AI Enabled framework
+- **Framework mods** — Child mods for community frameworks: WeaponCore, Vanilla+, Animation Engine, Scope Framework, and Tank Tracks
 - **Mod Adjuster mods** — Runtime definition patching via the [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) framework
 - **Programmable Block scripts** — Sandboxed ingame scripts (Main loop, GridTerminalSystem, IGC, etc.)
 
@@ -65,7 +66,7 @@ When you invoke `/space-engineers`, Claude will:
 
 - **Check for required directories** — if the game directory, ModSDK, workshop folder, or AppData aren't in your workspace, Claude will ask you to add any that are missing before proceeding
 - **Detect new patches** — compares installed DLC against a known catalogue; if a new patch has dropped, Claude will alert you and offer to research the new content before you start work
-- **Ask what you're working on** — a quick picker to select your project type (Mod, MES/AI Enabled, Mod Adjuster, PB Script, or Torch/Pulsar plugin) so Claude focuses on the right tools and patterns
+- **Ask what you're working on** — a quick picker to select your project type (Mod, MES/AI Enabled, Framework mod, Mod Adjuster, PB Script, or Torch/Pulsar plugin) so Claude focuses on the right tools and patterns
 - **Read your mod notes** — if a `MOD_MAKING_NOTES.md` exists in your mod directory, Claude reads it first to catch up on previous sessions and what's still pending. If one doesn't exist, Claude will offer to create it.
 - **Check your mod catalogue** — if a `MOD_CATALOGUE.md` exists in your workshop directory, Claude uses it to look up mod names, Workshop IDs, and SBC definitions
 
@@ -85,6 +86,11 @@ When you invoke `/space-engineers`, Claude will:
 | `PB_SCRIPTS.md` | Full PB scripting guide — Main loop, UpdateFrequency, block interfaces, coroutines, IGC, sandbox restrictions |
 | `TORCH.md` | Torch dedicated server framework — installation, plugin development, manifest format, NexusV3 multi-server |
 | `PULSAR.md` | Pulsar client plugin loader — installation, plugin development, PluginHub publishing, HarmonyLib patching |
+| `WEAPONCORE.md` | WeaponCore (CoreSystems) framework — CoreParts C# definitions, weapon + ammo structure, PB API |
+| `VANILLA_PLUS.md` | Vanilla+ Framework — VPFAmmoDefinition, VPFTurretDefinition, session component pattern |
+| `ANIMATION_ENGINE.md` | Animation Engine (Math0424) — BSL scripting language, main.info, subpart/emitter methods |
+| `SCOPE_FRAMEWORK.md` | Scope Framework — ScopeConfig.txt INI format, camera block SBC requirements, no C# required |
+| `TANK_TRACKS.md` | Tank Tracks (Digi) — TankTracks.ini format, segment model setup, C# API for scripted tools |
 
 ---
 
@@ -120,6 +126,21 @@ When you invoke `/space-engineers`, Claude will:
 > My mod isn't loading — here's the game log, can you find the error?
 ```
 
+```
+/space-engineers
+> I want to make a WeaponCore child mod — help me write the Part and Ammo files for a new railgun turret
+```
+
+```
+/space-engineers
+> Help me add a scope view to my sniper rifle block using SteadyScope
+```
+
+```
+/space-engineers
+> I want to add a particle effect animation to my custom welder block using Animation Engine
+```
+
 ---
 
 ## 🔩 Requirements
@@ -127,7 +148,8 @@ When you invoke `/space-engineers`, Claude will:
 - [Claude Code](https://www.anthropic.com/claude-code)
 - Space Engineers installed via Steam
 - Space Engineers ModSDK installed (free via Steam Tools)
-- For Mod Adjuster mods: [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) subscribed in Steam Workshop
+- For Mod Adjuster mods: [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) subscribed in Workshop
+- For framework mods: the corresponding framework subscribed (WeaponCore `3154371364`, Vanilla+ `2915780227`, Animation Engine `2880317963`, Scope Framework `2754014019`, Tank Tracks `3208995513`)
 
 ---
 
