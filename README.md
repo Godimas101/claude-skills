@@ -1,6 +1,12 @@
-# Space Engineers Modding Skill for Claude Code
+# ⚙️ Space Engineers Skill for Claude Code
 
-An expert skill for Claude Code covering all types of Space Engineers mod development:
+> **"Your AI co-engineer — doesn't need oxygen, never rage quits."**
+
+An expert Claude Code skill covering all types of Space Engineers mod development, from SBC XML patches to full C# compiled mods.
+
+---
+
+## 🚀 What It Covers
 
 - **Compiled mods** — C# text surface scripts (LCD screens), session components, SBC XML definitions
 - **MES encounter mods** — NPC ship, drone, station, and creature encounters using Modular Encounters System
@@ -10,7 +16,7 @@ An expert skill for Claude Code covering all types of Space Engineers mod develo
 
 ---
 
-## Install
+## 📦 Install
 
 1. Copy the `space-engineers/` folder into your Claude Code skills directory:
 
@@ -24,31 +30,27 @@ An expert skill for Claude Code covering all types of Space Engineers mod develo
    ~/.claude/skills/space-engineers/
    ```
 
-2. That's it. The skill is available as `/space-engineers` in any Claude Code session.
+2. That's it. Use `/space-engineers` in any Claude Code session.
 
 ---
 
-## Recommended VS Code Workspace Setup
+## 🗂️ Recommended Workspace Setup
 
-The skill works out of the box, but it is **significantly more useful** when Claude can browse your actual game files directly. When you invoke `/space-engineers`, Claude will check whether these directories are available and ask you to add any that are missing.
+The skill works out of the box, but it's **significantly more useful** when Claude can browse your actual game files. When you invoke `/space-engineers`, Claude will check whether these directories are available and ask you to add any that are missing.
 
 Add these as **additional working directories** in your VS Code workspace (or Claude Code settings):
 
 | Directory | Why |
 |-----------|-----|
-| `[Steam]\steamapps\common\SpaceEngineers\` | Vanilla SBC files — the ground truth for all block/item definitions. Required for looking up block properties, component costs, and balance values. |
+| `[Steam]\steamapps\common\SpaceEngineers\` | Vanilla SBC files — ground truth for all block/item definitions. Required for looking up block properties, component costs, and balance values. |
 | `[Steam]\steamapps\common\SpaceEngineersModSDK\` | API DLLs with XML documentation. Required for compiled mod and PB script work — intellisense, method signatures, interface definitions. |
 | Your mod project folder | Your actual mod source files. Required for editing your mod. |
-| `[Steam]\steamapps\workshop\content\244850\` | Your subscribed Workshop mods. Required for the mod catalogue — Claude uses it to look up mod names, Workshop IDs, and SBC definitions when building patches or avoiding naming collisions. |
+| `[Steam]\steamapps\workshop\content\244850\` | Subscribed Workshop mods. Required for the mod catalogue — used to look up mod names, Workshop IDs, and SBC definitions when building patches or avoiding naming collisions. |
 | `%AppData%\SpaceEngineers\` | Game logs and local mod files. Needed for debugging crashes and mod load errors. |
 
 > **Default Steam path on Windows:** `C:\Program Files (x86)\Steam\` or `D:\SteamLibrary\` depending on your install.
 >
 > **Default AppData path on Windows:** `C:\Users\[YourName]\AppData\Roaming\SpaceEngineers\`
-
-### How to add workspace directories in Claude Code
-
-In VS Code, open your workspace settings and add the paths above as additional working directories. This lets Claude browse game files without you having to copy-paste paths into every prompt.
 
 **ModSDK includes these tools out of the box (no extra downloads needed):**
 - `Tools\xWMAEncode.exe` — WAV → XWM audio conversion for sound mods
@@ -57,26 +59,26 @@ In VS Code, open your workspace settings and add the paths above as additional w
 
 ---
 
-## What Claude Will Do Automatically
+## 🤖 What Claude Does Automatically
 
 When you invoke `/space-engineers`, Claude will:
 
 - **Check for required directories** — if the game directory, ModSDK, workshop folder, or AppData aren't in your workspace, Claude will ask you to add any that are missing before proceeding
 - **Detect new patches** — compares installed DLC against a known catalogue; if a new patch has dropped, Claude will alert you and offer to research the new content before you start work
-- **Ask what you're working on** — a quick picker to select your project type (Mod, MES/AI Enabled, Mod Adjuster, PB Script, or Torch/Pulsar plugin) so Claude focuses on the right tools and patterns from the start
-- **Read your mod notes** — if a `MOD_MAKING_NOTES.md` exists in your mod directory, Claude reads it first to catch up on what was done in previous sessions and what's still pending. If one doesn't exist, Claude will offer to create it.
+- **Ask what you're working on** — a quick picker to select your project type (Mod, MES/AI Enabled, Mod Adjuster, PB Script, or Torch/Pulsar plugin) so Claude focuses on the right tools and patterns
+- **Read your mod notes** — if a `MOD_MAKING_NOTES.md` exists in your mod directory, Claude reads it first to catch up on previous sessions and what's still pending. If one doesn't exist, Claude will offer to create it.
 - **Check your mod catalogue** — if a `MOD_CATALOGUE.md` exists in your workshop directory, Claude uses it to look up mod names, Workshop IDs, and SBC definitions
 
 ---
 
-## What's Inside
+## 🗃️ What's Inside
 
 | File | Contents |
 |------|---------|
 | `SKILL.md` | Main skill — all mod types, SBC XML, C# patterns, asset pipeline, log reading, gotchas |
 | `CSHARP_PATTERNS.md` | Extended C# reference — power/gas/inventory queries, drawing helpers, config patterns, performance rules |
 | `SBC_TEMPLATES.md` | Copy-paste XML templates for common SBC patterns |
-| `MES.md` | Modular Encounters System guide — SpawnGroup, Behavior, Autopilot, Trigger, Action, SpawnConditions profile formats and examples |
+| `MES.md` | Modular Encounters System guide — SpawnGroup, Behavior, Autopilot, Trigger, Action, SpawnConditions formats and examples |
 | `AI_ENABLED.md` | AI Enabled guide — bot definitions, character SBC, MES integration for creature/NPC spawning |
 | `DLC_CATALOGUE.md` | Full DLC pack listing with SubtypeIds — used at startup to detect new patches |
 | `MOD_ADJUSTER.md` | Full Mod Adjuster guide — file structure, XML format, all definition types, patch examples |
@@ -86,7 +88,7 @@ When you invoke `/space-engineers`, Claude will:
 
 ---
 
-## Usage Examples
+## 💡 Usage Examples
 
 ```
 /space-engineers
@@ -120,7 +122,7 @@ When you invoke `/space-engineers`, Claude will:
 
 ---
 
-## Requirements
+## 🔩 Requirements
 
 - [Claude Code](https://www.anthropic.com/claude-code)
 - Space Engineers installed via Steam
@@ -129,8 +131,12 @@ When you invoke `/space-engineers`, Claude will:
 
 ---
 
-## Credits
+## 🙏 Credits
 
 Built by **Godimas** and **Claude**.
 
 Mod Adjuster XML format reverse-engineered from the [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) mod source (Workshop ID: 3017795356).
+
+---
+
+*Please weld responsibly.*
