@@ -254,7 +254,12 @@ Groups multiple blocks into one hotbar slot; mouse wheel scrolls through variant
 
 ### A) Extend an existing vanilla variant group (add blocks to a vanilla scroll group)
 
-Use the matching vanilla Subtype. Only include `<Id>` and `<Blocks>` — omit Icon/DisplayName/Description to preserve vanilla metadata. SE appends your blocks to the existing group.
+BVGs are **non-additive** — your definition completely replaces the vanilla one. You must:
+1. Use the exact vanilla `Subtype`
+2. Copy the vanilla `<Icon>`, `<DisplayName>`, and `<Description>` exactly
+3. Include **all** existing vanilla `<Block>` entries, then append yours at the end
+
+The `<DisplayName>` MUST use the vanilla localization key (starting with `DisplayName_`) or the game crashes with a `NullReferenceException` when loading the RadialMenu. See the table below for the correct key per group.
 
 ```xml
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -262,13 +267,46 @@ Use the matching vanilla Subtype. Only include `<Id>` and `<Blocks>` — omit Ic
   <BlockVariantGroups>
     <BlockVariantGroup>
       <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="TurretGroup" />
+      <Icon>Textures\GUI\Icons\Cubes\gatling_turret.dds</Icon>
+      <DisplayName>DisplayName_BlockGroup_TurretGroup</DisplayName>
+      <Description>Description_BlockGroup_TurretGroup</Description>
       <Blocks>
+        <!-- ALL vanilla blocks must be copied here first -->
+        <Block Type="MyObjectBuilder_LargeGatlingTurret" Subtype="" />
+        <Block Type="MyObjectBuilder_LargeGatlingTurret" Subtype="SmallGatlingTurret" />
+        <Block Type="MyObjectBuilder_LargeGatlingTurret" Subtype="LargeGatlingTurretReskin" />
+        <Block Type="MyObjectBuilder_LargeGatlingTurret" Subtype="SmallGatlingTurretReskin" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="SmallMissileTurret" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="LargeMissileTurretReskin" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="SmallMissileTurretReskin" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="LargeCalibreTurret" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="LargeBlockMediumCalibreTurret" />
+        <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="SmallBlockMediumCalibreTurret" />
+        <Block Type="MyObjectBuilder_InteriorTurret" Subtype="LargeInteriorTurret" />
+        <Block Type="MyObjectBuilder_LargeGatlingTurret" Subtype="AutoCannonTurret" />
+        <!-- Your modded blocks appended at the end -->
         <Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="MY_TURRET_SUBTYPE" />
       </Blocks>
     </BlockVariantGroup>
   </BlockVariantGroups>
 </Definitions>
 ```
+
+**Vanilla DisplayName keys and Icons for common groups** (copy these exactly):
+
+| `Subtype` | `<DisplayName>` | `<Icon>` |
+|-----------|-----------------|----------|
+| `TurretGroup` | `DisplayName_BlockGroup_TurretGroup` | `Textures\GUI\Icons\Cubes\gatling_turret.dds` |
+| `ShipWeaponStaticGroup` | `DisplayName_BlockGroup_ShipWeaponStaticGroup` | `Textures\GUI\Icons\Cubes\missile_launcher.dds` |
+| `BatteryGroup` | `DisplayName_Block_Battery` | `Textures\GUI\Icons\Cubes\Battery.dds` |
+| `SolarGroup` | `DisplayName_BlockGroup_EnergyRenewableGroup` | `Textures\GUI\Icons\Cubes\SolarPanel.dds` |
+| `WindTurbineGroup` | `DisplayName_Block_WindTurbine` | `Textures\GUI\Icons\Cubes\WindTurbine.dds` |
+| `RotorGroup` | `DisplayName_Block_Rotor` | `Textures\GUI\Icons\Cubes\motor.dds` |
+| `HingeGroup` | `DisplayName_Block_Hinge` | `Textures\GUI\Icons\Cubes\Hinge.dds` |
+| `StorageShelves` | `DisplayName_BlockGroup_StorageShelves` | `Textures\GUI\Icons\Cubes\Shelf_1.dds` |
+
+> Always get the full vanilla block list from `D:\SteamLibrary\steamapps\common\SpaceEngineers\Content\Data\BlockVariantGroups.sbc` before writing your override.
 
 **Key vanilla variant group Subtypes:**
 
@@ -282,11 +320,13 @@ Use the matching vanilla Subtype. Only include `<Id>` and `<Blocks>` — omit Ic
 | Wind turbines | `WindTurbineGroup` |
 | Advanced rotors (stators + rotor parts) | `RotorGroup` |
 | Hinges (stator bases + hinge heads) | `HingeGroup` |
-| Storage shelves | `StorageShelves` ⚠️ **DO NOT EXTEND** — crashes game (see note below) |
+| Storage shelves | `StorageShelves` |
 
 > Find more in `D:\SteamLibrary\steamapps\common\SpaceEngineers\Content\Data\BlockVariantGroups.sbc`.
 
-> ⚠️ **StorageShelves known crash bug:** Extending the `StorageShelves` group causes a `NullReferenceException` in `MyRadialMenuItemCubeBlock.Init` and aborts session load. Root cause: the vanilla `StorageShelves` definition uses `<DisplayName>` (a localization string key) but the RadialMenu system requires `<DisplayNameEnum>`, which vanilla never set. Adding any block to the group triggers the RadialMenu to process it and hit the null. Workaround: add the block to a `BlockCategories.sbc` entry instead — players can find it in the tab, but won't be able to scroll-cycle to it from a shelf.
+> ⚠️ **CRITICAL — BVGs are non-additive.** You cannot just list your new blocks. You MUST copy all existing vanilla blocks into your definition too, or they will disappear from the group. See pattern A below for the correct approach.
+
+> ⚠️ **DisplayName crash:** If you omit `<DisplayName>` or use a plain text string that doesn't start with `DisplayName_`, the game cannot populate its internal `DisplayNameEnum` field. Any group referenced by `RadialMenu.sbc` will then throw a `NullReferenceException` in `MyRadialMenuItemCubeBlock.Init` and abort the session load. Always copy the exact vanilla localization key — e.g. `<DisplayName>DisplayName_BlockGroup_TurretGroup</DisplayName>`.
 
 ### B) Create a new custom variant group
 
