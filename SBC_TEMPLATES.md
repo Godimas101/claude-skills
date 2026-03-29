@@ -25,6 +25,75 @@ These apply to ALL `.sbc` files without exception:
 | **Merged** | Environment Definition |
 | **No Override** | Decal, EmissiveColor, EmissiveColorStatePreset |
 
+### Mod Load Order
+
+Mods load **bottom-to-top** in the in-game mod list. The mod **highest in the list** is loaded last and wins any definition conflicts. To override another mod's definition, your mod must be higher in the list than theirs.
+
+### Definitions That Cannot Be Modded
+
+| File | Issue |
+|------|-------|
+| `RadialMenu.sbc` | Not moddable — Keen ticket #47915 |
+| `GuiTextures.sbc` | Mod textures silently fail |
+| `ControllerSchemes.sbc` | New entries don't appear in GUI |
+| `WheelModels.sbc` | Code using it is disabled |
+| `DLCs.sbc` | No modding support |
+| `AssetModifiers.sbc` | Broken support |
+
+---
+
+## Cross-Mod Asset References
+
+You can reference models, textures, icons, and sounds from **another Workshop mod** without copying their files — using the `..\\` path syntax.
+
+### How It Works
+
+Workshop mods all live in the same parent folder:
+```
+SteamLibrary\steamapps\workshop\content\244850\
+  12345678\     ← mod with Workshop ID 12345678
+  99887766\     ← your mod with Workshop ID 99887766
+```
+
+The `..\\` prefix navigates up one level from your mod's root to the `244850\` folder, then into the target mod by its ID:
+
+```xml
+<!-- Standard path (your own mod's assets) -->
+<Icon>Textures\GUI\Icons\MyBlock.dds</Icon>
+<Model>Models\Cubes\Large\MyBlock.mwm</Model>
+
+<!-- Cross-mod reference (assets owned by Workshop mod 12345678) -->
+<Icon>..\\12345678\\Textures\\GUI\\Icons\\FancyBlock.dds</Icon>
+<Model>..\\12345678\\Models\\Cubes\\Large\\FancyBlock.mwm</Model>
+```
+
+Use `\\` (double backslash) — standard SE XML path separator.
+
+Works for: `<Icon>`, `<Model>`, `<BuildProgressModel>`, `<LOD>` entries, `<ColorMetalTexture>` and other material paths, and audio `<File>` references in AudioDefinition SBCs. Confirmed to work for LOD model paths too.
+
+### Local Testing Without Uploading
+
+Cross-mod paths resolve relative to the **folder the mod lives in**. Workshop mods live in `244850\`. Local mods live in `%AppData%\SpaceEngineers\Mods\`.
+
+To test locally, mirror the Workshop folder structure:
+
+1. Copy the target mod's folder to `%AppData%\SpaceEngineers\Mods\`
+2. Rename the copied folder to the Workshop ID (e.g., `12345678`)
+3. Your local mod's `..\\12345678\\...` paths now resolve correctly
+
+### Permissions and Restrictions
+
+- Referencing assets = no copy, no permission needed
+- Copying asset files into your mod = **requires express permission** from the original author
+- Script (`.cs`) files cannot be referenced or patched — no method exists short of full permission
+- If you use any DLC asset, you must add `<DLC>DLCName</DLC>` to your block definition
+
+### Workshop Dependencies vs Load Order
+
+Do **not** use the formal Workshop "Required Items" dependency system if you also need to override a definition from the target mod. The dependency is forced to load before your mod, which is usually correct for override purposes — but the system has known quirks. The safe approach:
+- For **definition overrides**: link the original mod in your description, ask users to place it lower in their mod list
+- For **asset references only**: load order doesn't matter; either approach works
+
 ---
 
 ## File Header

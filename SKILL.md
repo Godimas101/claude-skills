@@ -495,13 +495,33 @@ The `Subtype` must match `[MyTextSurfaceScript("MyScriptId", "...")]` in C#.
 ### Mod Folder Structure
 
 ```
-MyMod/
-├── Data/
-│   ├── Scripts/YourNamespace/YourScript.cs
+MyMod/                        ← local: %AppData%\SpaceEngineers\Mods\MyMod\
+├── Data/                     ← REQUIRED — must exist even if empty
+│   ├── Scripts/
+│   │   └── MyMod/            ← scripts subfolder — must match mod name
+│   │       └── MyScript.cs
 │   ├── TextSurfaceScripts.sbc
-│   └── CubeBlocks/MyBlocks.sbc
-├── metadata.mod
-└── thumb.png
+│   └── CubeBlocks/
+│       └── MyBlocks.sbc
+├── modinfo.sbmi              ← auto-generated on first Workshop publish; required for updates
+└── thumb.png                 ← optional thumbnail (Steam: <1 MB; mod.io: required, min 512×288)
+```
+
+**`Data/` is mandatory** — without it the game fails to load the mod entirely, even for collection mods with no content. Never name it anything else.
+
+**`modinfo.sbmi`** is auto-created when you first publish. If it goes missing, recreate it manually:
+
+```xml
+<?xml version="1.0"?>
+<MyObjectBuilder_ModInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WorkshopIds>
+    <WorkshopId>
+      <Id>1234567890</Id>        <!-- your Workshop ID from the Steam URL -->
+      <ServiceName>Steam</ServiceName>
+    </WorkshopId>
+  </WorkshopIds>
+</MyObjectBuilder_ModInfo>
 ```
 
 ---
@@ -512,7 +532,7 @@ MyMod/
 2. **MyFixedPoint** — use `.ToIntSafe()` or `(float)(double)amount`, never cast directly
 3. **Block components are nullable** — always null-check `Components.Get<T>()`
 4. **DetailedInfo is fragile** — localized string, format changes with game updates
-5. **SBC load order** — last mod loaded wins on same Type+Subtype; use Mod Adjuster for non-destructive patches
+5. **SBC load order** — mods load **bottom-to-top** in the in-game mod list. The mod highest in the list wins on same Type+Subtype. Use Mod Adjuster for non-destructive patches
 6. **Backward compatibility** — never rename CustomData keys; add new ones, keep old ones
 7. **`.sbm` files** — renamed ZIP archives (old mod packaging format). Safe to delete or ignore. `.sbm` files in `Storage\` subdirectories are NOT the same — those are **mod runtime data folders** (named like `.sbm_12345678`) and must NOT be deleted.
 8. **`.bin` files in mod folders** — old binary archive format, same as `.sbm`. Safe to ignore.
@@ -688,7 +708,7 @@ Consolidated notes for all mods in this workspace.
 ## Quick Checklist Before Shipping
 
 ### All Mods
-- [ ] `metadata.mod` present with correct `Name` and `WorkshopId`
+- [ ] `modinfo.sbmi` present with correct `WorkshopId` (auto-generated on first publish; recreate manually if missing)
 - [ ] No TypeId/SubtypeId renamed or removed (breaks existing saves)
 - [ ] Tested in Creative mode before publishing
 - [ ] Workshop description updated if behavior changed

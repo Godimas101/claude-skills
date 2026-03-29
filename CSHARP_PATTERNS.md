@@ -4,6 +4,38 @@ Extended reference for C# patterns used in Space Engineers compiled mods (text s
 
 ---
 
+## Project Setup Requirements
+
+### Target Framework and Language Version
+
+```xml
+<TargetFramework>net48</TargetFramework>   <!-- .NET Framework 4.8 — do NOT use net6/net8 -->
+<Platforms>x64</Platforms>                 <!-- Must be x64, NOT AnyCPU -->
+<LangVersion>6</LangVersion>               <!-- C# 6 — do NOT use newer features -->
+```
+
+SE runs on .NET Framework 4.8. Using `net6` or `net8` will produce a DLL the game cannot load. C# 7+ features (pattern matching, tuples, etc.) will cause compile errors.
+
+### MDK2 — The Standard Project Setup Tool
+
+All compiled SE mods should use **MDK2** (Malware's Development Kit 2):
+- **MDK Hub** (GUI): download from https://github.com/malforge/mdk2/releases — manages templates, builds, and output paths
+- **Templates:** `dotnet new mdk2mod` (mods) or `dotnet new mdk2pbscript` (PB scripts)
+- **NuGet packages** (add to `.csproj`):
+  - `Mal.Mdk2.ModAnalyzers` — whitelist analyzer, flags disallowed API calls at edit time
+  - `Mal.Mdk2.References` — SE DLL references without hardcoded paths
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Mal.Mdk2.ModAnalyzers" Version="*" />
+  <PackageReference Include="Mal.Mdk2.References" Version="*" />
+</ItemGroup>
+```
+
+**Do NOT put `.csproj` inside `Data\Scripts\`** — this causes whitelist analyzer conflicts. Keep it at the mod root or in a sibling folder.
+
+---
+
 ## Mod Script Folder Structure
 
 Scripts must live in exactly **one named folder** directly under `Scripts/`:
