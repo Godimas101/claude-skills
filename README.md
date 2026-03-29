@@ -78,6 +78,13 @@ When you invoke `/space-engineers`, Claude will:
 | `SBC_TEMPLATES.md` | Copy-paste XML templates — block categories, variant groups, cross-mod asset paths, all common patterns |
 | `PATCH_NOTES.md` | Breaking changes and notable additions by patch (1.200–1.208) — quick reference for mod compatibility |
 | `MOD_ADJUSTER.md` | Full Mod Adjuster guide — file structure, XML format, all definition types, patch examples |
+| `MES.md` | Modular Encounters System — spawn groups, prefabs, encounter types, MES-specific SBC fields |
+| `AI_ENABLED.md` | AI Enabled framework — bot definitions, animation controllers, faction setup, child mod structure |
+| `WEAPONCORE.md` | WeaponCore framework — weapon definitions, ammo types, targeting, WC-specific SBC fields |
+| `ANIMATION_ENGINE.md` | Animation Engine framework — animation definitions, triggers, subpart control |
+| `SCOPE_FRAMEWORK.md` | Scope Framework — optic overlay definitions, zoom levels, reticle setup |
+| `TANK_TRACKS.md` | Tank Tracks framework — tracked vehicle setup, wheel group definitions |
+| `VANILLA_PLUS.md` | Vanilla+ Framework — child mod structure, VPFAmmoDefinition, VPFTurretDefinition |
 | `PB_SCRIPTS.md` | Full PB scripting guide — Main loop, UpdateFrequency, block interfaces, coroutines, IGC, sandbox restrictions |
 | `TORCH.md` | Torch dedicated server framework — installation, plugin development, manifest format, NexusV3 multi-server |
 | `PULSAR.md` | Pulsar client plugin loader — installation, plugin development, PluginHub publishing, HarmonyLib patching |
@@ -129,7 +136,7 @@ Mod Adjuster XML format reverse-engineered from the [Mod Adjuster](https://steam
 
 This skill is free and always will be. If it helps with your mods, consider supporting on Patreon — it helps keep the tools and mods coming.
 
-[![Support on Patreon](https://raw.githubusercontent.com/Godimas101/personal-projects/main/patreon/patreon-medium.png)](https://patreon.com/Godimas101)
+[![Support on Patreon](https://raw.githubusercontent.com/Godimas101/personal-projects/main/patreon/images/buttons/patreon-medium.png)](https://patreon.com/Godimas101)
 
 ---
 

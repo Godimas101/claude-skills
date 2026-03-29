@@ -139,24 +139,50 @@ Options:
 
 - **Working on a mod** → Ask a follow-up to narrow the type:
   ```
-  Question: "What type of mod?"
+  Question: "What type of mod are you working on?"
   Options:
-    - label: "SBC-only mod"
-      description: "XML definitions — blocks, items, blueprints, balance changes"
+    - label: "Brand new mod"
+      description: "Adding blocks, items, sounds, LCD images, planets, or other game content via SBC/XML"
+    - label: "Framework mod"
+      description: "Building on top of MES, AI Enabled, WeaponCore, Mod Adjuster, Animation Engine, Scope Framework, or Tank Tracks"
     - label: "Compiled C# mod"
-      description: "Text Surface Script (LCD screen), Session Component, or Game Logic"
-    - label: "MES / AI Enabled encounter mod"
-      description: "NPC ships, characters, or creatures using Modular Encounters System / AI Enabled"
-    - label: "Mod Adjuster patch"
-      description: "Non-destructive balance patches against third-party workshop mods"
+      description: "Text Surface Script (LCD screen), Session Component, or Game Logic — requires C# and MDK2"
     - label: "Programmable Block script"
       description: "Ingame PB script — sandboxed C#, whitelist restrictions apply"
   ```
   Then:
-  - **SBC-only** → Ask which mod they're working on. Read the relevant CLAUDE.md and MOD_MAKING_NOTES.md. Reference SBC_TEMPLATES.md and PATCH_NOTES.md for field reference.
-  - **Compiled C#** → Ask which mod they're working on. Read CLAUDE.md and MOD_MAKING_NOTES.md. Reference CSHARP_PATTERNS.md. Clarify Text Surface Script vs Session Component vs Game Logic if not clear.
-  - **MES / AI Enabled** → Read [MES.md](MES.md) and/or [AI_ENABLED.md](AI_ENABLED.md). Ask whether ship/vehicle encounter (MES), character/creature (AI Enabled), or both. Reference mod catalogue for installed MES/AI Enabled mods.
-  - **Mod Adjuster** → Focus on Mod Adjuster patterns. Reference mod catalogue for target mod Workshop ID and SBC definitions. See [MOD_ADJUSTER.md](MOD_ADJUSTER.md).
+  - **Brand new mod** → Ask which mod they're working on. Read the relevant CLAUDE.md and MOD_MAKING_NOTES.md. Reference [SBC_TEMPLATES.md](SBC_TEMPLATES.md) and [PATCH_NOTES.md](PATCH_NOTES.md) for field reference and breaking changes.
+  - **Framework mod** → Ask which framework:
+    ```
+    Question: "Which framework?"
+    Options:
+      - label: "MES — Modular Encounters System"
+        description: "NPC ship and vehicle encounter spawns"
+      - label: "AI Enabled"
+        description: "NPC characters, creatures, and crew"
+      - label: "WeaponCore"
+        description: "Custom weapons using the WeaponCore framework"
+      - label: "Mod Adjuster"
+        description: "Non-destructive balance patches against any mod or vanilla"
+      - label: "Animation Engine"
+        description: "Custom block animations using the Animation Engine framework"
+      - label: "Scope Framework"
+        description: "Weapon scope/optic overlays using the Scope Framework"
+      - label: "Tank Tracks"
+        description: "Tracked vehicle movement using the Tank Tracks framework"
+      - label: "Vanilla+ Framework"
+        description: "Advanced projectile and weapon behaviors on vanilla weapons (server-side)"
+    ```
+    Then:
+    - **MES** → Read [MES.md](MES.md). Ask which mod they're working on and reference the mod catalogue for installed MES packs.
+    - **AI Enabled** → Read [AI_ENABLED.md](AI_ENABLED.md). Reference the mod catalogue for installed AI Enabled mods.
+    - **WeaponCore** → Read [WEAPONCORE.md](WEAPONCORE.md). Reference the mod catalogue for the WeaponCore Workshop ID and any child mods.
+    - **Mod Adjuster** → Read [MOD_ADJUSTER.md](MOD_ADJUSTER.md). Reference the mod catalogue to find the target mod's Workshop ID and SBC definitions.
+    - **Animation Engine** → Read [ANIMATION_ENGINE.md](ANIMATION_ENGINE.md).
+    - **Scope Framework** → Read [SCOPE_FRAMEWORK.md](SCOPE_FRAMEWORK.md).
+    - **Tank Tracks** → Read [TANK_TRACKS.md](TANK_TRACKS.md).
+    - **Vanilla+** → Read [VANILLA_PLUS.md](VANILLA_PLUS.md). Note: framework Workshop listing is unlisted — docs are in the local workshop cache and the VPF Discord.
+  - **Compiled C#** → Ask which mod they're working on. Read CLAUDE.md and MOD_MAKING_NOTES.md. Reference [CSHARP_PATTERNS.md](CSHARP_PATTERNS.md). Clarify Text Surface Script vs Session Component vs Game Logic if not clear from context.
   - **PB script** → Apply PB sandbox restrictions throughout. See [PB_SCRIPTS.md](PB_SCRIPTS.md).
 
 - **Torch or Pulsar plugin** → Ask "Torch or Pulsar?" and "Where is it installed?" See [TORCH.md](TORCH.md) or [PULSAR.md](PULSAR.md) accordingly.
