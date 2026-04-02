@@ -327,3 +327,28 @@ Check the user's **MOD_CATALOGUE.md** for all mods with category **Animation Eng
 Any mod with `Data/Animation/*.bsl` files is an Animation Engine child mod.
 
 Full documentation: [GitHub Wiki](https://github.com/Math0424/AnimationEngine/wiki) — especially [Scripting Language Basics](https://github.com/Math0424/AnimationEngine/wiki/Scripting-Language-Basics) and the [V2 Lexicon](https://github.com/Math0424/AnimationEngine/wiki/V2-Lexicon).
+
+---
+
+## References
+
+### External
+- [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails?id=2880317963)
+- [GitHub Repository](https://github.com/Math0424/AnimationEngine)
+- [GitHub Wiki](https://github.com/Math0424/AnimationEngine/wiki)
+- [Scripting Language Basics](https://github.com/Math0424/AnimationEngine/wiki/Scripting-Language-Basics)
+- [V2 Lexicon](https://github.com/Math0424/AnimationEngine/wiki/V2-Lexicon)
+- [easings.net](https://easings.net/) — easing/lerp type visual reference
+- Aryx Mega Welder (real-world BSL example) — Workshop ID `3325231237`
+
+### Internal
+- [../ASSETS.md](../ASSETS.md) — subpart setup in MWM models; particle and sound dummies
+- [../sbc/SBC_BLOCKS.md](../sbc/SBC_BLOCKS.md) — block definition; `<SubtypeId>` must match `@BlockID`
+- [WEAPONCORE.md](WEAPONCORE.md) — WeaponCore integration via `@Weaponcore` and `weaponcore()` actions
+
+### Local
+
+| What | Where |
+|------|-------|
+| Animation Engine framework source | `[Steam]\steamapps\workshop\content\244850\2880317963\` |
+| Aryx Mega Welder (real-world BSL example) | `[Steam]\steamapps\workshop\content\244850\3325231237\` |

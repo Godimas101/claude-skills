@@ -146,3 +146,24 @@ Any mod with a `Data/ScopeConfig.txt` file is a Scope Framework child mod.
 Any mod with a `Data/ScopeConfig.txt` file is a Scope Framework child mod. Check MOD_CATALOGUE.md for the **Scope Framework** category.
 
 Full documentation is on the Scope Framework Workshop page (ID: 2754014019).
+
+---
+
+## References
+
+### External
+- [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails?id=2754014019) — only documentation available
+- Binoculars (example child mod) — Workshop ID `2777644246`
+
+### Internal
+- [../sbc/SBC_MISC.md](../sbc/SBC_MISC.md) — camera block SBC definition (required for each scoped weapon)
+- [../ASSETS.md](../ASSETS.md) — hand weapon model with embedded camera subpart
+
+### Local
+
+| What | Where |
+|------|-------|
+| Scope Framework source | `[Steam]\steamapps\workshop\content\244850\2754014019\` |
+| Binoculars (example child mod) | `[Steam]\steamapps\workshop\content\244850\2777644246\` |
+
+> No external docs exist — the Workshop page description is the full documentation. Read the local source and the Binoculars example mod for implementation guidance.

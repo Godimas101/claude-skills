@@ -2,6 +2,8 @@
 
 **Workshop ID:** 1521905890
 **Author:** Meridius_IX / Lucas
+**Workshop:** [Modular Encounters Systems](https://steamcommunity.com/sharedfiles/filedetails?id=1521905890)
+**GitHub:** [MeridiusIX/Modular-Encounters-Systems](https://github.com/MeridiusIX/Modular-Encounters-Systems)
 
 MES is the standard framework for adding custom NPC ships, drones, stations, and creature encounters to Space Engineers. It acts as a shell — the mod itself handles all the spawning logic, AI routing, faction management, and encounter lifecycle. Modders build on top of it by creating SBC profile files that MES reads at runtime.
 
@@ -358,8 +360,21 @@ See [AI_ENABLED.md](AI_ENABLED.md) for the bot character definition format.
 
 ---
 
-## External Documentation
+## References
 
-MES has a comprehensive wiki maintained by the author:
-- Search Steam Workshop page (ID: 1521905890) for links to the RivalAI wiki and full tag reference
-- The wiki documents every `[Key:Value]` tag for every profile type
+### External
+- [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails?id=1521905890)
+- [GitHub Repository](https://github.com/MeridiusIX/Modular-Encounters-Systems) — full wiki and `[Key:Value]` tag reference for every profile type
+- Ares at War (large MES example mod) — Workshop ID `2999925713`
+
+### Internal
+- [AI_ENABLED.md](AI_ENABLED.md) — character/creature framework; MES handles ships, AI Enabled handles crew
+- [../sbc/SBC_MISC.md](../sbc/SBC_MISC.md) — prefab SBC format (used for NPC ship blueprints)
+- [../sbc/SBC_RULES.md](../sbc/SBC_RULES.md) — SBC load order and override rules
+
+### Local
+
+| What | Where |
+|------|-------|
+| MES framework source | `[Steam]\steamapps\workshop\content\244850\1521905890\` |
+| Ares at War (large MES example mod) | `[Steam]\steamapps\workshop\content\244850\2999925713\` |

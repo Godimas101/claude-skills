@@ -3,13 +3,12 @@
 **Workshop ID:** 3154371364
 **Authors:** BDCarrillo (primary), Ash Like Snow (contributor/wiki)
 **Required dependency:** Camera Panning — Workshop ID `806331071`
+**GitHub (Wiki):** [Ash-LikeSnow/WeaponCore](https://github.com/Ash-LikeSnow/WeaponCore/wiki)
+**GitHub (CoreParts examples):** [Ash-LikeSnow/CoreParts](https://github.com/Ash-LikeSnow/CoreParts)
 
 WeaponCore (internally "CoreSystems") is the dominant weapon framework for Space Engineers modding. It completely replaces SE's native combat system — all vanilla weapons are swapped for WC-managed equivalents, and any incompatible third-party weapon blocks are removed from the world at session start (unless the server enables "UnsupportedMode"). WeaponCore itself adds no weapons; it is purely infrastructure that weapon mod authors build on top of.
 
 > **Key insight:** WeaponCore weapon mods consist of `.cs` configuration files (not SBC weapon stats) placed in `Data/Scripts/CoreParts/`, paired with standard SBC block definitions. The framework compiles and reads these files at startup. You never edit the framework; you only provide definition files.
-
-**Authoritative documentation:** [GitHub Wiki — Ash-LikeSnow/WeaponCore](https://github.com/Ash-LikeSnow/WeaponCore/wiki)
-**Example CoreParts repo:** [Ash-LikeSnow/CoreParts](https://github.com/Ash-LikeSnow/CoreParts)
 
 ---
 
@@ -229,3 +228,28 @@ Full PB API guide: Workshop ID `2178802013` (by Sigmund Froid).
 Check the user's **MOD_CATALOGUE.md** for all mods with category **WeaponCore** — these are the child mods they have installed. Use them as local reference examples when building new weapon definitions.
 
 Any mod with `Data/Scripts/CoreParts/*.cs` files is a WeaponCore child mod. The official compatible mod list (79+ mods) is on the [GitHub wiki](https://github.com/Ash-LikeSnow/WeaponCore/wiki/Current-WeaponCore-ModList).
+
+---
+
+## References
+
+### External
+- [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails?id=3154371364)
+- [GitHub Wiki](https://github.com/Ash-LikeSnow/WeaponCore/wiki)
+- [CoreParts example repository](https://github.com/Ash-LikeSnow/CoreParts)
+- Camera Panning (required dependency) — Workshop ID `806331071`
+- PB API guide — Workshop ID `2178802013`
+
+### Internal
+- [../sbc/SBC_BLOCKS.md](../sbc/SBC_BLOCKS.md) — ConveyorSorter and other block type definitions
+- [../scripting/CSHARP_PATTERNS.md](../scripting/CSHARP_PATTERNS.md) — C# session component patterns
+- [../ASSETS.md](../ASSETS.md) — model setup, subparts, muzzle empties
+
+### Local
+
+| What | Where |
+|------|-------|
+| WeaponCore framework source | `[Steam]\steamapps\workshop\content\244850\3154371364\` |
+| Camera Panning (required dependency) | `[Steam]\steamapps\workshop\content\244850\806331071\` |
+
+> CoreParts example repo is on GitHub: [Ash-LikeSnow/CoreParts](https://github.com/Ash-LikeSnow/CoreParts)

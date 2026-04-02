@@ -30,6 +30,8 @@ An expert modding assistant for Claude Code covering the full spectrum of Space 
 
 2. That's it. The skill is available as `/space-engineers` in any Claude Code session.
 
+> **How skill discovery works:** Claude Code reads the frontmatter in `SKILL.md` (`name: space-engineers`) to register the skill. There is no separate `CLAUDE.md` — `SKILL.md` is the entry point. All other files in the skill are loaded on demand by the routing logic inside `SKILL.md`.
+
 ---
 
 ## 🗂️ Recommended Workspace Setup
@@ -102,9 +104,13 @@ Picking **Working on a mod** triggers one more follow-up to narrow the type (bra
 
 | File | Contents |
 |------|---------|
-| `SKILL.md` | Main skill — workspace checks, mod type routing, log reading, TSS/Session Component patterns |
+| `SKILL.md` | Main skill — workspace checks, mod type routing, log reading, mod catalogue, shipping checklist |
 | `GETTING_STARTED.md` | Beginner onboarding — mod types decision tree, tool setup, folder structure, publishing workflow |
-| `SBC_TEMPLATES.md` | Copy-paste XML templates — blocks, items, blueprints, LCD surfaces, all common SBC patterns |
+| `sbc/SBC_RULES.md` | Universal SBC rules — override/additive behavior, load order, cross-mod references, DefinitionBase fields |
+| `sbc/SBC_BLOCKS.md` | Block/item templates — categories, variant groups, block definitions, component lists, block type reference |
+| `sbc/SBC_PRODUCTION.md` | Production templates — blueprints, production tabs (BlueprintClass), progression/research locks |
+| `sbc/SBC_MISC.md` | Miscellaneous SBC — LCD registration, localization, loot tables, prefabs, finding definition IDs |
+| `sbc/SBC_TEMPLATES.md` | Copy-paste XML templates and field references for common modding patterns |
 | `ASSETS.md` | Full asset pipeline — Blender/SEUT modeling, texture channel packing, Havok collisions, MWM export |
 | `RECIPES.md` | Step-by-step worked examples — LCD App Script from scratch, full Armor Block mod |
 
@@ -113,6 +119,7 @@ Picking **Working on a mod** triggers one more follow-up to narrow the type (bra
 | File | Contents |
 |------|---------|
 | `scripting/CSHARP_PATTERNS.md` | Extended C# reference — project setup, conveyor API, LCD drawing helpers, Save/Sync, performance rules |
+| `scripting/TSS_PATTERNS.md` | Text Surface Script patterns — class structure, Update10 rule, drawing, scrolling, subgrid caching |
 | `scripting/PB_SCRIPTS.md` | Programmable Block guide — Main loop, UpdateFrequency, block interfaces, coroutines, IGC, sandbox restrictions |
 
 ### Framework Mods
@@ -124,8 +131,8 @@ Picking **Working on a mod** triggers one more follow-up to narrow the type (bra
 | `framework-mods/AI_ENABLED.md` | AI Enabled — bot definitions, animation controllers, faction setup, child mod structure |
 | `framework-mods/WEAPONCORE.md` | WeaponCore — weapon definitions, ammo types, targeting, WC-specific SBC fields |
 | `framework-mods/ANIMATION_ENGINE.md` | Animation Engine — animation definitions, triggers, subpart control |
-| `framework-mods/SCOPE_FRAMEWORK.md` | Scope Framework — optic overlay definitions, zoom levels, reticle setup |
-| `framework-mods/TANK_TRACKS.md` | Tank Tracks — tracked vehicle setup, wheel group definitions |
+| `framework-mods/SCOPE_FRAMEWORK.md` | Scope Framework — ScopeConfig.txt setup, camera block SBC, zoom/sway/iron-sights for hand weapons |
+| `framework-mods/TANK_TRACKS.md` | Tank Tracks — TankTracks.ini config, segment models, block-to-track mapping, C# API overview |
 | `framework-mods/VANILLA_PLUS.md` | Vanilla+ Framework — child mod structure, VPFAmmoDefinition, VPFTurretDefinition |
 
 ### Plugins
@@ -179,7 +186,7 @@ Picking **Working on a mod** triggers one more follow-up to narrow the type (bra
 - [Claude Code](https://www.anthropic.com/claude-code)
 - Space Engineers installed via Steam
 - Space Engineers ModSDK installed (free via Steam → Library → Tools)
-- For compiled mods: [MDK2](https://github.com/malware-dev/MDK-SE) and Visual Studio or Rider
+- For compiled mods: [MDK2](https://github.com/malforge/mdk2/releases) and Visual Studio or Rider
 - For Mod Adjuster mods: [Mod Adjuster](https://steamcommunity.com/workshop/filedetails/?id=3017795356) subscribed in Steam Workshop
 - For asset pipeline work: Blender 4.0+ with the [SEUT addon](https://spaceengineers.wiki.gg/wiki/Modding/Tools/Space_Engineers_Utilities)
 

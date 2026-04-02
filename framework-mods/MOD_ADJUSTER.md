@@ -1,10 +1,13 @@
-# Space Engineers Mod Adjuster Expert
+# Mod Adjuster
 
-Expert guidance for creating **Mod Adjuster** mods for Space Engineers.
+**Workshop ID:** 3017795356
+**Author:** Ash Like Snow
+**Workshop:** [Mod Adjuster V2](https://steamcommunity.com/sharedfiles/filedetails?id=3017795356)
+**GitHub:** [Ash-LikeSnow/ModAdjusterV2](https://github.com/Ash-LikeSnow/ModAdjusterV2)
 
-Mod Adjuster (Workshop ID: 3017795356) is a session component that lets your mod patch other mods' and vanilla game definitions **at runtime** — without SBC file conflicts or load-order problems. It is the preferred approach for balance overrides and cross-mod compatibility.
+Mod Adjuster is a session component that lets your mod patch other mods' and vanilla game definitions **at runtime** — without SBC file conflicts or load-order problems. It is the preferred approach for balance overrides and cross-mod compatibility.
 
-> For compiled C# mods and text surface scripts use `/se-mod`. For PB ingame scripts use `/se-pb-script`.
+> For compiled C# mods, text surface scripts, PB scripts, and all other SE modding, use `/space-engineers`.
 
 ---
 
@@ -332,7 +335,17 @@ Search for `ModAdjuster` to find all MA log lines.
 
 ---
 
-## Key Reference Files (Local)
+## References
+
+### External
+- [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails?id=3017795356)
+- [GitHub Repository](https://github.com/Ash-LikeSnow/ModAdjusterV2)
+
+### Internal
+- [../sbc/SBC_RULES.md](../sbc/SBC_RULES.md) — SBC override/additive rules and load order
+- [../sbc/SBC_BLOCKS.md](../sbc/SBC_BLOCKS.md) — block and item definition templates for what to patch
+
+### Local
 
 | What | Where |
 |------|-------|

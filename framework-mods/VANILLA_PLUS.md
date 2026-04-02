@@ -2,7 +2,7 @@
 
 **Workshop ID:** 2915780227
 **Author:** Nerd e1
-**Example mod:** Workshop ID `3014670447` — copy from local workshop cache (unlisted)
+**Example mod:** Vanilla+ Framework Example Mod — Workshop ID `3014670447`
 **Discord (primary docs):** https://discord.gg/dxfxcnvXeh
 
 Vanilla+ Framework (VPF) is a server-side scripting framework that adds advanced projectile and weapon behaviors to vanilla Space Engineers weapons without overwriting any vanilla SBC definitions. It works by reading C# definition objects registered by child mods at session load, then intercepting vanilla missile and turret events at runtime to apply additional logic.
@@ -267,3 +267,25 @@ var fxDef = new VPFVisualEffectsDefinition
 Check the user's **MOD_CATALOGUE.md** for all mods with category **Vanilla+ Framework** — these are the child mods they have installed. Use them as local reference examples when building new definitions.
 
 Any mod with `Definitions/AmmoDefinitionDefinitions.cs` inside its `Data/Scripts/` tree is a Vanilla+ child mod. The most useful reference is the **Example Mod** (ID `3014670447`) — if the user has it installed, it's the authoritative implementation reference.
+
+---
+
+## References
+
+### External
+- Vanilla+ Framework — Workshop ID `2915780227` (removed from public Workshop)
+- [Discord Server](https://discord.gg/dxfxcnvXeh) — primary documentation and support
+- Vanilla+ Framework Example Mod — Workshop ID `3014670447`
+
+### Internal
+- [../scripting/CSHARP_PATTERNS.md](../scripting/CSHARP_PATTERNS.md) — C# session component patterns; `LoadData` / `BeforeStart` / `UnloadData` lifecycle
+- [../sbc/SBC_RULES.md](../sbc/SBC_RULES.md) — ammo SBC SubtypeIds (ammo definitions are vanilla SBC)
+
+### Local
+
+| What | Where |
+|------|-------|
+| Vanilla+ Framework source (boilerplate files) | `[Steam]\steamapps\workshop\content\244850\2915780227\Data\Scripts\VanillaPlusFrameworkScripts\` |
+| Vanilla+ Framework Example Mod (authoritative implementation reference) | `[Steam]\steamapps\workshop\content\244850\3014670447\` |
+
+> Copy `VPFModAPI.cs` and the four `Definitions/*.cs` files verbatim from the framework source. The example mod is the best reference for how to structure your definitions session component.

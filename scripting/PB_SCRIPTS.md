@@ -4,7 +4,7 @@ Expert guidance for writing **Programmable Block (PB) ingame scripts** for Space
 
 PB scripts run inside a sandboxed VM — they are completely different from compiled mods. No file I/O, no threading, no reflection. Access to game state is via a whitelisted API only.
 
-> For compiled C# mods and text surface scripts use `/se-mod`. For Mod Adjuster patches use `/se-mod-adjuster`.
+> For compiled C# mods, text surface scripts, Mod Adjuster patches, and all other SE modding, use `/space-engineers`.
 
 ---
 

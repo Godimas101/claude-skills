@@ -2,6 +2,8 @@
 
 **Workshop ID:** 2596208372
 **Author:** Stollie / jTurp
+**Workshop:** [AiEnabled](https://steamcommunity.com/sharedfiles/filedetails?id=2596208372)
+**GitHub:** [jturp/AiEnabled](https://github.com/jturp/AiEnabled)
 
 AI Enabled is the standard framework for adding living characters to Space Engineers — human NPCs, robots, animals, and alien creatures. Like MES handles ships, AI Enabled handles characters. The two frameworks are designed to work together and are frequently used in combination.
 
@@ -240,3 +242,27 @@ MyFactionMod/
 4. **Custom models require `.mwm` files** — bot characters need a custom 3D model exported via MwmBuilder. Can reuse vanilla character models as a shortcut by referencing existing Character SubtypeIds (e.g. `Default_Astronaut`).
 5. **`AvailableInSurvival:false`** — keep this false for NPC-only bots. Setting it to true makes the bot type selectable by players, which is usually not what you want.
 6. **Multiple `[BotProfiles:]` entries** in a SpawnGroup or SpawnConditions profile result in random selection per spawn — useful for varied encounters.
+
+---
+
+## References
+
+### External
+- [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails?id=2596208372)
+- [GitHub Repository](https://github.com/jturp/AiEnabled)
+- Bot_spawner (required dependency) — Workshop ID `2336089504`
+- Crew Enabled (child mod example) — Workshop ID `2803081060`
+- Infestation Enabled (child mod example) — Workshop ID `2809500674`
+
+### Internal
+- [MES.md](MES.md) — encounter spawning framework; MES handles ships, AI Enabled handles crew
+- [../sbc/SBC_RULES.md](../sbc/SBC_RULES.md) — SBC override rules for bot and character definitions
+
+### Local
+
+| What | Where |
+|------|-------|
+| AI Enabled framework source | `[Steam]\steamapps\workshop\content\244850\2596208372\` |
+| Bot_spawner (required dependency) | `[Steam]\steamapps\workshop\content\244850\2336089504\` |
+| Crew Enabled (child mod example) | `[Steam]\steamapps\workshop\content\244850\2803081060\` |
+| Infestation Enabled (child mod example) | `[Steam]\steamapps\workshop\content\244850\2809500674\` |

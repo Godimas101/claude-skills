@@ -199,3 +199,28 @@ Any mod with a `Data\TankTracks.ini` file is a Tank Tracks content mod. Any mod 
 The **Tank Tracks Builder** (ID `3209005014`, by Digi) is the canonical reference implementation for the C# API — if the user has it installed, read it.
 
 Full config reference: [Digi's TankTracks.ini Gist](https://gist.github.com/THDigi/d9d41e35a97fd9b55a3e9d3a7e0a8d72)
+
+---
+
+## References
+
+### External
+- Tank Tracks framework — Workshop ID `3208995513` (removed from public Workshop as of 2025)
+- [Tank Tracks Builder](https://steamcommunity.com/workshop/filedetails?id=3209005014) — C# API reference implementation (Workshop ID `3209005014`)
+- Tank Tracks over Vanilla Wheels (content mod reference) — Workshop ID `3209008231`
+- [TankTracks.ini config reference (Gist)](https://gist.github.com/THDigi/d9d41e35a97fd9b55a3e9d3a7e0a8d72)
+- [C# API session component example (Gist)](https://gist.github.com/THDigi/d515209c9dce1d0bee1deb86235a654a)
+
+### Internal
+- [../ASSETS.md](../ASSETS.md) — track segment MWM model pipeline
+- [../scripting/CSHARP_PATTERNS.md](../scripting/CSHARP_PATTERNS.md) — C# session component patterns (for scripted tools only)
+
+### Local
+
+| What | Where |
+|------|-------|
+| Tank Tracks core framework | `[Steam]\steamapps\workshop\content\244850\3208995513\` |
+| Tank Tracks Builder (C# API reference) | `[Steam]\steamapps\workshop\content\244850\3209005014\` |
+| Tank Tracks over Vanilla Wheels (content mod reference) | `[Steam]\steamapps\workshop\content\244850\3209008231\` |
+
+> **Tank Tracks is three mods at minimum.** All three are required for the full experience. The builder tool (`3209005014`) is the canonical C# API reference — read its source when building scripted tools.
