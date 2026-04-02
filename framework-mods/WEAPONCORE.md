@@ -250,9 +250,9 @@ Any mod with `Data/Scripts/CoreParts/*.cs` files is a WeaponCore child mod. The 
 Search the user's `MOD_CATALOGUE.md` for entries in the **WeaponCore** category. Any listed mod is a locally installed WC weapon mod and is valid reference material for weapon and ammo definitions.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
-| What | ID |
-|------|----|
-| WeaponCore framework source | `3154371364` |
-| Camera Panning (required dependency) | `806331071` |
+| Workshop ID | Mod Name | Category | Notes |
+|-------------|----------|----------|-------|
+| 3154371364 | WeaponCore | Framework Mod | Framework source |
+| 806331071 | Camera Panning | Framework Mod | Required dependency |
 
 > CoreParts example repo is on GitHub: [Ash-LikeSnow/CoreParts](https://github.com/Ash-LikeSnow/CoreParts)

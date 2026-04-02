@@ -263,9 +263,9 @@ MyFactionMod/
 Search the user's `MOD_CATALOGUE.md` for entries in the **AI Enabled** category. Any listed mod is a locally installed AI Enabled child mod and is valid reference material for bot definitions and animation controllers.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
-| What | ID |
-|------|----|
-| AI Enabled framework source | `2596208372` |
-| Bot_spawner (required dependency) | `2336089504` |
-| Crew Enabled (child mod example) | `2803081060` |
-| Infestation Enabled (child mod example) | `2809500674` |
+| Workshop ID | Mod Name | Category | Notes |
+|-------------|----------|----------|-------|
+| 2596208372 | AI Enabled | Framework Mod | Framework source |
+| 2336089504 | Bot_spawner | AI Enabled | Required dependency — not for direct use |
+| 2803081060 | Crew Enabled | AI Enabled | Child mod example |
+| 2809500674 | Infestation Enabled | AI Enabled | Child mod example |

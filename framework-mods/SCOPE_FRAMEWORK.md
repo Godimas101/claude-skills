@@ -164,9 +164,9 @@ Full documentation is on the Scope Framework Workshop page (ID: 2754014019).
 Search the user's `MOD_CATALOGUE.md` for entries in the **Scope Framework** category. Any listed mod is a locally installed Scope Framework child mod and is valid implementation reference.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
-| What | ID |
-|------|----|
-| Scope Framework source | `2754014019` |
-| Binoculars (example child mod) | `2777644246` |
+| Workshop ID | Mod Name | Category | Notes |
+|-------------|----------|----------|-------|
+| 2754014019 | Scope Framework | Framework Mod | Framework source |
+| 2777644246 | Binoculars | Scope Framework | Example child mod |
 
 > No external docs exist — the Workshop page description is the full documentation. Read the local source and any installed Scope Framework child mods for implementation guidance.

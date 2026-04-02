@@ -377,7 +377,7 @@ See [AI_ENABLED.md](AI_ENABLED.md) for the bot character definition format.
 Search the user's `MOD_CATALOGUE.md` for entries in the **MES** category. Any listed mod is a locally installed MES child or encounter pack and is valid reference material for spawn group structure and encounter design.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
-| What | ID |
-|------|----|
-| MES framework source | `1521905890` |
-| Ares at War (large MES example mod) | `2999925713` |
+| Workshop ID | Mod Name | Category | Notes |
+|-------------|----------|----------|-------|
+| 1521905890 | Modular Encounters Systems | Framework Mod | Framework source |
+| 2999925713 | Ares at War | MES | Large example mod |

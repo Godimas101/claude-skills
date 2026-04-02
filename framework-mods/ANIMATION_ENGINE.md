@@ -351,7 +351,7 @@ Full documentation: [GitHub Wiki](https://github.com/Math0424/AnimationEngine/wi
 Search the user's `MOD_CATALOGUE.md` for entries in the **Animation Engine** category. Any listed mod is a locally installed Animation Engine child mod and is valid reference material.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
-| What | ID |
-|------|----|
-| Animation Engine framework source | `2880317963` |
-| Aryx Mega Welder (real-world BSL example) | `3325231237` |
+| Workshop ID | Mod Name | Category | Notes |
+|-------------|----------|----------|-------|
+| 2880317963 | Animation Engine | Framework Mod | Framework source |
+| 3325231237 | Aryx Mega Welder | Animation Engine | Real-world BSL example |
