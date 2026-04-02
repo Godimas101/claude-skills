@@ -225,6 +225,13 @@ The catalogue lives at the root of your mod directory (e.g. `244850\MOD_CATALOGU
 - **NPC/AI** — NPC spawns or AI systems that don't use MES or AI Enabled
 - **Economy** — Trade, economy, logistics
 - **Blueprint** — Ship blueprint (not a gameplay mod)
+- **Scenario** — Workshop world save or scenario (not a gameplay mod)
+- **WeaponCore** — WeaponCore (CoreSystems) framework source or child weapon mod
+- **Vanilla+ Framework** — Vanilla+ Framework source or child mod
+- **Animation Engine** — Animation Engine framework source or child mod
+- **Scope Framework** — Scope Framework source or child mod
+- **Tank Tracks** — Tank Tracks framework source or child mod
+- **Mod Adjuster** — Mod Adjuster framework source or patch mod built with Mod Adjuster
 - **Other** — Miscellaneous / unclear
 
 ---
@@ -238,8 +245,18 @@ The catalogue lives at the root of your mod directory (e.g. `244850\MOD_CATALOGU
 
 ### Building or Refreshing the Catalogue
 
-To build or refresh the catalogue:
+**Before scanning — size check:**
+1. Count the subdirectories in the workshop folder (each is a mod).
+   - **500 or more mods:** Stop and ask before proceeding:
+     > "Your workshop folder contains [n] mods. Building a full catalogue will take a while — want me to proceed, or would you prefer to scan only a specific range?"
+   - **Under 500:** Continue automatically.
 
+**Scan cap — 200 mods per session:**
+Process a maximum of 200 mod folders per build/refresh run. If there are more:
+- Write the catalogue with however many were processed, noting in the header: `**Scanned:** [n] of [total] — run again to continue`
+- Tell the user how many remain and offer to continue in the next run
+
+**Per-mod steps:**
 1. List all subdirectories in the mod folder (each is a Workshop ID)
 2. For each mod folder, find its name by checking in order:
    - `modinfo.sbmi` → `<WorkshopId>` / `<Name>` fields
@@ -254,6 +271,13 @@ To build or refresh the catalogue:
    - Folder name / display name contains "Blueprint" → Blueprint
    - Has `Profiles/` subfolder OR any SBC containing `[Modular Encounters SpawnGroup]` → **MES**
    - Has `<Bot xsi:type="MyObjectBuilder_AnimalBotDefinition">` in any SBC OR has `AnimationControllers/` folder → **AI Enabled**
+   - Workshop ID `3154371364` → **WeaponCore**
+   - Workshop ID `2880317963` → **Animation Engine**
+   - Workshop ID `2754014019` → **Scope Framework**
+   - Workshop IDs `3208995513`, `3209005014`, `3209008231` → **Tank Tracks**
+   - Workshop IDs `2915780227`, `3014670447` → **Vanilla+ Framework**
+   - Workshop ID `3017795356` OR has `3017795356` as a dependency in `modinfo.sbmi` OR any SBC file contains `ModAdjust` XML types → **Mod Adjuster**
+   - **Unknown / doesn't match any rule above → use "Other"** — never leave Category blank
 4. Sort the table alphabetically by Mod Name
 5. Update the header count and date
 6. **Remind the user:** "Catalogue updated. Next refresh due by [date + 30 days]."

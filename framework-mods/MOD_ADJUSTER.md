@@ -347,7 +347,7 @@ Search for `ModAdjuster` to find all MA log lines.
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for Workshop ID `3017795356` (listed under the **Framework Mod** category). If installed, the source layout is always:
+Search the user's `MOD_CATALOGUE.md` for Workshop ID `3017795356` (listed under the **Mod Adjuster** category). If installed, the source layout is always:
 
 | What | Path within mod folder |
 |------|------------------------|
