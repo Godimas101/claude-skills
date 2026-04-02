@@ -1,6 +1,10 @@
 # C# Project Setup — Space Engineers Compiled Mods
 
-Project structure, tooling, and decompiler reference for Space Engineers compiled mods. For runtime scripting patterns (session components, block queries, save/sync), see [CSHARP_PATTERNS.md](CSHARP_PATTERNS.md).
+Project structure, tooling, and decompiler reference for Space Engineers compiled mods. Start here for any new compiled mod project.
+
+> For runtime patterns (session component, config, save/sync): see [CSHARP_PATTERNS.md](CSHARP_PATTERNS.md).
+> For block API queries (power, gas, inventory, production, conveyor): see [CSHARP_BLOCK_QUERIES.md](CSHARP_BLOCK_QUERIES.md).
+> For Text Surface Script / LCD drawing patterns: see [TSS_PATTERNS.md](TSS_PATTERNS.md).
 
 ---
 
@@ -276,7 +280,8 @@ Before calling any game method in a mod, confirm it's on the whitelist:
 - [spaceengineers.wiki.gg/wiki/Modding/Reference/ModScripting](https://spaceengineers.wiki.gg/wiki/Modding/Reference/ModScripting) — official C# mod scripting reference
 
 ### Internal
-- [CSHARP_PATTERNS.md](CSHARP_PATTERNS.md) — runtime patterns: session components, block queries, config, save/sync
+- [CSHARP_PATTERNS.md](CSHARP_PATTERNS.md) — runtime patterns: session component, config, save/sync, logging, type conversions
+- [CSHARP_BLOCK_QUERIES.md](CSHARP_BLOCK_QUERIES.md) — block API queries: power, gas, inventory, production, doors, conveyor network
 - [TSS_PATTERNS.md](TSS_PATTERNS.md) — Text Surface Script drawing, scrolling, subgrid caching
 - [PB_SCRIPTS.md](PB_SCRIPTS.md) — Programmable Block scripting (sandboxed; different from compiled mods)
 - [../GETTING_STARTED.md](../GETTING_STARTED.md) — beginner onboarding: mod types, VS Code setup, uploading
