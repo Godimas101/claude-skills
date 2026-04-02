@@ -310,20 +310,7 @@ MyMod/                        ← local: %AppData%\SpaceEngineers\Mods\MyMod\
 
 **`Data/` is mandatory** — without it the game fails to load the mod entirely, even for collection mods with no content. Never name it anything else.
 
-**`modinfo.sbmi`** is auto-created when you first publish. If it goes missing, recreate it manually:
-
-```xml
-<?xml version="1.0"?>
-<MyObjectBuilder_ModInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <WorkshopIds>
-    <WorkshopId>
-      <Id>1234567890</Id>        <!-- your Workshop ID from the Steam URL -->
-      <ServiceName>Steam</ServiceName>
-    </WorkshopId>
-  </WorkshopIds>
-</MyObjectBuilder_ModInfo>
-```
+**`modinfo.sbmi`** is auto-created when you first publish. If it goes missing, see [GETTING_STARTED.md](GETTING_STARTED.md) for the template.
 
 ---
 
@@ -613,13 +600,4 @@ Key pages on the official modding wiki. Fetch these when you need deep detail on
 
 ### Important "Not Moddable" Notes
 
-These SBC files **cannot be overridden** — attempting to do so crashes the game or silently fails:
-
-| File | Reason |
-|------|--------|
-| `RadialMenu.sbc` | Not designed to be moddable — Keen ticket #47915 |
-| `GuiTextures.sbc` | Mod textures silently fail |
-| `ControllerSchemes.sbc` | New selections don't appear in GUI |
-| `WheelModels.sbc` | Code using it is disabled |
-| `Game/DLCs.sbc` | Informational only |
-| `Screens/*.gsc` | Only loads from game folder with exact filenames |
+> See [sbc/SBC_RULES.md](sbc/SBC_RULES.md) for the full list of SBC files that cannot be overridden.

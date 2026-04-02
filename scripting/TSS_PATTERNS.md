@@ -230,18 +230,6 @@ private void UpdateBlocks()
 
 ## SBC Registration
 
-### Register a Text Surface Script
-
-```xml
-<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <LCDScripts>
-    <LCDScript>
-      <Id Type="MyObjectBuilder_LCDScript" Subtype="MyScriptId" />
-      <DisplayName>My Screen Display Name</DisplayName>
-      <Description>What this screen shows</Description>
-    </LCDScript>
-  </LCDScripts>
-</Definitions>
-```
+> For the `TextSurfaceScripts.sbc` registration template, see [sbc/SBC_MISC.md](../sbc/SBC_MISC.md).
 
 The `Subtype` must match `[MyTextSurfaceScript("MyScriptId", "...")]` in C#.

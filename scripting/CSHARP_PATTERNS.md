@@ -882,45 +882,13 @@ namespace YourName.YourModName
 - `Surface.DrawFrame()` returns a `MySpriteDrawFrame` — use `using` to auto-flush it.
 - No SBC registration needed for the script itself. The `[MyTextSurfaceScript]` attribute registers it automatically. To pre-assign the script to a block's LCD, set `Script="YourAppInternalName"` in the block's `ScreenArea` definition.
 
+> For a step-by-step worked example with test plan and shipping checklist, see [RECIPES.md](../RECIPES.md).
+
 ---
 
 ## SBC: Adding LCD Screens to Custom Blocks
 
-<!-- Source: https://spaceengineers.wiki.gg/wiki/Modding/Tutorials/SBC/Screens -->
-
-To add LCD screen functionality to a modded block, add a `<ScreenAreas>` section to the block's CubeBlocks SBC definition:
-
-```xml
-<ScreenAreas>
-    <!-- Name must match the material name in the block's 3D model -->
-    <!-- whose ColorMetal texture will be replaced by the LCD output -->
-    <ScreenArea
-        Name="MaterialNameHere"
-        DisplayName="Screen name in terminal"
-        ScreenWidth="1"
-        ScreenHeight="1"
-        TextureResolution="512"
-        Script="" />
-    <!-- Add more ScreenArea elements for additional screens on the same block -->
-</ScreenAreas>
-```
-
-**Parameter notes:**
-- `Name` — must match the material name in the model file exactly (case-sensitive)
-- `DisplayName` — shown in the terminal UI; supports localization keys like `{LOC:MyKey}`
-- `ScreenWidth` / `ScreenHeight` — integer ratio determining aspect ratio; measure the UV'd surface dimensions
-- `TextureResolution` — suggested resolution (default 512); actual resolution scales by aspect ratio
-- `Script` — internal name of the LCD app to run by default; leave empty for "No Script"
-
-**Built-in script internal names** (can be used in `Script=""` attribute):
-`TSS_Jukebox`, `TSS_ClockAnalog`, `TSS_ArtificialHorizon`, `TSS_ClockDigital`,
-`TSS_EnergyHydrogen`, `TSS_FactionIcon`, `TSS_Gravity`, `TSS_TargetingInfo`,
-`TSS_Velocity`, `TSS_VendingMachine`, `TSS_Weather`
-
-**Model requirements:**
-- The screen UV must be centered and touch edges on at least one axis
-- A backing plane behind the screen plane is required (any texture)
-- Verify the target block type supports LCDs before adding the definition
+> For the `ScreenAreas` SBC definition template, field reference, and built-in script names, see [sbc/SBC_MISC.md](../sbc/SBC_MISC.md).
 
 ---
 
@@ -1140,8 +1108,6 @@ Before calling any game method in a mod, confirm it's on the whitelist:
 
 ## SBC: Localization (Translation Support)
 
-<!-- Source: https://spaceengineers.wiki.gg/wiki/Modding/Tutorials/Localization -->
-
 ### Using Localization Keys in SBC
 
 Replace any display string in a `.sbc` file with a localization key using `{LOC:KeyName}` syntax:
@@ -1163,21 +1129,7 @@ Data/Localization/
 └── MyTexts.ru.resx       ← Russian
 ```
 
-Each `.resx` file is XML with name/value pairs:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <data name="DisplayName_MyCoolBlock" xml:space="preserve">
-    <value>My Cool Block</value>
-  </data>
-  <data name="Description_MyCoolBlock" xml:space="preserve">
-    <value>A block that does cool things.</value>
-  </data>
-</root>
-```
-
-The key in `name=""` must exactly match the key used in `{LOC:KeyName}` in the SBC.
+> For the full RESX XML template and key matching rules, see [sbc/SBC_MISC.md](../sbc/SBC_MISC.md).
 
 ---
 

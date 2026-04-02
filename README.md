@@ -110,7 +110,6 @@ Picking **Working on a mod** triggers one more follow-up to narrow the type (bra
 | `sbc/SBC_BLOCKS.md` | Block/item templates — categories, variant groups, block definitions, component lists, block type reference |
 | `sbc/SBC_PRODUCTION.md` | Production templates — blueprints, production tabs (BlueprintClass), progression/research locks |
 | `sbc/SBC_MISC.md` | Miscellaneous SBC — LCD registration, localization, loot tables, prefabs, finding definition IDs |
-| `sbc/SBC_TEMPLATES.md` | Copy-paste XML templates and field references for common modding patterns |
 | `ASSETS.md` | Full asset pipeline — Blender/SEUT modeling, texture channel packing, Havok collisions, MWM export |
 | `RECIPES.md` | Step-by-step worked examples — LCD App Script from scratch, full Armor Block mod |
 

@@ -15,7 +15,7 @@ SE modding has three completely separate disciplines. Pick the one that fits you
 
 **Learning curve:** Low. You're editing XML files. The main skill is knowing which fields do what.
 
-**Start here:** [SBC_TEMPLATES.md](sbc/SBC_TEMPLATES.md)
+**Start here:** [SBC_RULES.md](sbc/SBC_RULES.md)
 
 ---
 
@@ -219,7 +219,7 @@ This works because all Workshop mods live in the same parent folder (`244850\`),
 
 **For local testing:** Copy the target mod's folder into `%AppData%\SpaceEngineers\Mods\` and rename it to the Workshop ID number. Your `..\\12345678\\` references will resolve correctly.
 
-**Full guide:** [SBC_TEMPLATES.md — Cross-Mod Asset References](sbc/SBC_TEMPLATES.md)
+**Full guide:** [SBC_RULES.md — Cross-Mod Asset References](sbc/SBC_RULES.md)
 
 ---
 
