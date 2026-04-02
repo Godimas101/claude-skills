@@ -260,7 +260,7 @@ MyFactionMod/
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for AI Enabled child mods installed in their workshop. Any AI Enabled mod is valid reference material for bot definitions and animation controllers.
+Search the user's `MOD_CATALOGUE.md` for entries in the **AI Enabled** category. Any listed mod is a locally installed AI Enabled child mod and is valid reference material for bot definitions and animation controllers.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |

@@ -161,7 +161,7 @@ Full documentation is on the Scope Framework Workshop page (ID: 2754014019).
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for Scope Framework mods installed in their workshop. Any Scope Framework child mod is valid implementation reference.
+Search the user's `MOD_CATALOGUE.md` for entries in the **Scope Framework** category. Any listed mod is a locally installed Scope Framework child mod and is valid implementation reference.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |

@@ -217,7 +217,7 @@ Full config reference: [Digi's TankTracks.ini Gist](https://gist.github.com/THDi
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for Tank Tracks mods installed in their workshop. Tank Tracks requires all three core mods — check all three IDs.
+Search the user's `MOD_CATALOGUE.md` for entries in the **Tank Tracks** category. Any listed mod is a locally installed Tank Tracks child mod. Also check all three core mod IDs below — Tank Tracks requires all three.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |

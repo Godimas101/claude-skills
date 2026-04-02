@@ -348,7 +348,7 @@ Full documentation: [GitHub Wiki](https://github.com/Math0424/AnimationEngine/wi
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for Animation Engine mods installed in their workshop. Any BSL animation mod is valid reference material.
+Search the user's `MOD_CATALOGUE.md` for entries in the **Animation Engine** category. Any listed mod is a locally installed Animation Engine child mod and is valid reference material.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |

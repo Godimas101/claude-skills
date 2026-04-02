@@ -374,7 +374,7 @@ See [AI_ENABLED.md](AI_ENABLED.md) for the bot character definition format.
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for MES-dependent mods installed in their workshop. Any MES child mod is valid reference material for spawn group structure and encounter design.
+Search the user's `MOD_CATALOGUE.md` for entries in the **MES** category. Any listed mod is a locally installed MES child or encounter pack and is valid reference material for spawn group structure and encounter design.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |

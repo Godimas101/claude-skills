@@ -247,7 +247,7 @@ Any mod with `Data/Scripts/CoreParts/*.cs` files is a WeaponCore child mod. The 
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for WeaponCore-dependent mods installed in their workshop. Any WC weapon mod is valid reference material for weapon and ammo definitions.
+Search the user's `MOD_CATALOGUE.md` for entries in the **WeaponCore** category. Any listed mod is a locally installed WC weapon mod and is valid reference material for weapon and ammo definitions.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |

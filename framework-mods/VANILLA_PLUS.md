@@ -283,7 +283,7 @@ Any mod with `Definitions/AmmoDefinitionDefinitions.cs` inside its `Data/Scripts
 
 ### Local
 
-Search the user's `MOD_CATALOGUE.md` for Vanilla+ Framework mods installed in their workshop. Any VPF child mod includes the required boilerplate files and is valid reference material.
+Search the user's `MOD_CATALOGUE.md` for entries in the **Vanilla+ Framework** category. Any listed mod is a locally installed VPF child mod and includes the required boilerplate files — all are valid reference material.
 
 **Workshop IDs — check MOD_CATALOGUE for local paths:**
 | What | ID |
