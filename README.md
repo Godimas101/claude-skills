@@ -6,6 +6,8 @@
 
 An expert modding assistant for Claude Code covering the full spectrum of Space Engineers mod development — from your first `.sbc` file to shipping a full compiled C# mod with custom 3D assets.
 
+> **Patch notes:** see [`CHANGELOG.md`](CHANGELOG.md) or the [GitHub Releases page](https://github.com/Godimas101/se-claude-skill/releases) for major milestones.
+
 **Coverage:**
 - **SBC/XML mods** — blocks, items, blueprints, economy, planets, and more
 - **Compiled C# mods** — Text Surface Scripts (LCD screens), Session Components, Game Logic
