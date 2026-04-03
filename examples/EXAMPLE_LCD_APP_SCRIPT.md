@@ -3,7 +3,6 @@
 End-to-end walkthrough: register a custom C# app in the LCD screen list. Players select it from the terminal just like vanilla apps (Energy, Inventory, etc.).
 
 > For all examples, see [EXAMPLES_MANIFEST.md](EXAMPLES_MANIFEST.md).
-> For the armor block example: see [EXAMPLE_ARMOR_BLOCK.md](EXAMPLE_ARMOR_BLOCK.md).
 > For C# project setup and MDK2: see [../scripting/csharp/CSHARP_PROJECT_SETUP.md](../scripting/csharp/CSHARP_PROJECT_SETUP.md).
 > For TSS class structure, drawing API, and base classes: see [../scripting/tss/TSS_PATTERNS.md](../scripting/tss/TSS_PATTERNS.md) and [../scripting/tss/TSS_DRAWING.md](../scripting/tss/TSS_DRAWING.md).
 

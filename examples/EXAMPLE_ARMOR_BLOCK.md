@@ -3,7 +3,6 @@
 End-to-end walkthrough: full custom armor block shape using Blender + SEUT. Includes model export, mountpoints, mirroring, build stages, LODs, SBC registration, and G-menu categories.
 
 > For all examples, see [EXAMPLES_MANIFEST.md](EXAMPLES_MANIFEST.md).
-> For the LCD App Script example: see [EXAMPLE_LCD_APP_SCRIPT.md](EXAMPLE_LCD_APP_SCRIPT.md).
 > For SBC rules and block definition templates: see [../sbc/SBC_RULES.md](../sbc/SBC_RULES.md) and [../sbc/SBC_BLOCKS.md](../sbc/SBC_BLOCKS.md).
 > For the full asset pipeline: see [../ASSETS.md](../ASSETS.md).
 
